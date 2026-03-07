@@ -1,0 +1,6 @@
+.env
+node_modules
+example-data
+packages/*/dist
+packages/ui/.next
+packages/ui/next-env.d.ts

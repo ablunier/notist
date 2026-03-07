@@ -1,0 +1,27 @@
+{
+  "name": "@ablunier/notist-workspace",
+  "version": "0.0.1",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev:core": "npm run dev --workspace=packages/core",
+    "dev:ui": "npm run dev --workspace=packages/ui",
+    "build:core": "npm run build --workspace=packages/core",
+    "build:ui": "npm run build --workspace=packages/ui",
+    "build": "npm run build --workspaces",
+    "test": "npm run test --workspaces --if-present",
+    "lint": "eslint packages/*/src"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "eslint": "^10.0.2",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.56.1"
+  },
+  "volta": {
+    "node": "24.13.0",
+    "npm": "11.7.0"
+  }
+}
