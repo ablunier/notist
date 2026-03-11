@@ -4,20 +4,22 @@
   "type": "module",
   "main": "dist/index.js",
   "scripts": {
-    "dev": "DOTENV_CONFIG_PATH=../../.env tsx watch src/index.ts",
+    "dev": "tsx watch src/index.ts",
     "build": "tsc",
     "test": "vitest",
-    "test-api": "DOTENV_CONFIG_PATH=../../.env tsx src/test-api.ts"
+    "test-api": "tsx src/test-api.ts"
   },
   "dependencies": {
     "@doist/todoist-api-typescript": "^6.10.0",
     "@notionhq/client": "^5.11.1",
+    "awilix": "^13.0.3",
     "dotenv": "^17.3.1",
-    "express": "^5.1.0"
+    "express": "^5.1.0",
+    "helmet": "^8.1.0"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",
-    "@types/node": "^25.3.3",
+    "@types/node": "^24.0.0",
     "tsx": "^4.21.0",
     "vitest": "^4.0.18"
   }

@@ -1,8 +1,16 @@
+export type ProjectId = {
+  todoist: string;
+  notion?: string;
+};
+
+export type ProjectUrl = {
+  todoist: string;
+  notion?: string;
+};
+
 export interface Project {
-  id: string;
+  id: ProjectId;
+  url: ProjectUrl;
   name: string;
-  color?: string;
-  parentId?: string;
-  isShared: boolean;
-  isFavorite: boolean;
+  parentId?: ProjectId;
 }

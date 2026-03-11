@@ -1,7 +1,6 @@
 import type { ProjectId, Project } from "./Project.js";
 
-export interface ProjectRepository {
-  findAll(): Promise<Project[]>;
+export interface ProjectNotionGateway {
   findById(id: ProjectId): Promise<Project | undefined>;
-  save(project: Project): Promise<void>;
+  create(project: Project): Promise<void>;
 }
