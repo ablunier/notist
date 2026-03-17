@@ -1,16 +1,16 @@
 import { TodoistApi } from "@doist/todoist-api-typescript";
-import { Client } from "@notionhq/client";
+//import { Client } from "@notionhq/client";
 import "dotenv/config";
 
 const todoist = new TodoistApi(process.env.TODOIST_KEY as string);
 
-const notion = new Client({ auth: process.env.NOTION_KEY });
+//const notion = new Client({ auth: process.env.NOTION_KEY });
 
-const projects = await todoist.getProjects();
+const labels = await todoist.getLabels();
 
-console.log(projects);
+console.log(labels);
 
-const pages = await notion.search({
+/*const pages = await notion.search({
   filter: { property: "object", value: "page" },
 });
 
@@ -77,6 +77,21 @@ const tasksDatabase = await notion.databases.create({
         type: "title",
         title: {}
       },
+      "Status": {
+        type: "select",
+        select: {
+          options: [
+            {
+              name: "pending",
+              color: "blue",
+            },
+            {
+              name: "completed",
+              color: "green",
+            },
+          ]
+        }
+      },
       "Description": {
         type: "rich_text",
         rich_text: {}
@@ -88,6 +103,12 @@ const tasksDatabase = await notion.databases.create({
       "Deadline": {
         type: "date",
         date: {}
+      },
+      "Section": {
+        type: "select",
+        select: {
+          options: []
+        }
       },
       "Labels": {
         type: "select",
@@ -132,3 +153,4 @@ const tasksDatabase = await notion.databases.create({
 });
 
 console.log(tasksDatabase);
+*/

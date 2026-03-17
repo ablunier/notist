@@ -1,13 +1,17 @@
 import { Router } from "express";
+import type { AppContainer } from "../../container.js";
 import { TodoistProjectsRetriever } from "../../../application/TodoistProjectsRetriever.js";
-import { SdkProjectTodoistGateway } from "../../SdkProjectTodoistGateway.js";
 
-export const todoistRouter = Router();
+export function createTodoistRouter(container: AppContainer): Router {
+    const router = Router();
 
-todoistRouter.get("/projects", async (_req, res) => {
-    const todoistProjectRetriever = new TodoistProjectsRetriever(
-        new SdkProjectTodoistGateway()
-    );
+    router.get("/projects", async (req, res) => {
+        const todoistProjectsRetriever = new TodoistProjectsRetriever(
+            container.resolve("ProjectTodoistGateway")
+        );
 
-    res.json(await todoistProjectRetriever.execute());
-});
+        res.json(await todoistProjectsRetriever.execute());
+    });
+
+    return router;
+}
